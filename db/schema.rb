@@ -11,9 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140701224552) do
+ActiveRecord::Schema.define(version: 20140702150546) do
+
+  create_table "blocks", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "sector_id"
+  end
+
+  add_index "blocks", ["sector_id"], name: "index_blocks_on_sector_id"
 
   create_table "boulders", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "block_id"
+  end
+
+  add_index "boulders", ["block_id"], name: "index_boulders_on_block_id"
+
+  create_table "regions", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sectors", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"

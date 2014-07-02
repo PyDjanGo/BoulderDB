@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @sector.name %>
+  <h3>Blöcke:</h3>
+  <ul>
+  <% @sector.blocks.each do |block| %>
+	<li><%= link_to block.name, block_path  %> (<%= block.boulders.count %>)</li>
+  <% end %>
+  </ul>
+</p>
+
+<%= link_to 'Edit', edit_sector_path(@sector) %> |
+<%= link_to 'Back', sectors_path %>

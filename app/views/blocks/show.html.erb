@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @block.name %>
+  <h3>Boulder:</h3>
+  <ul>
+  <% @block.boulders.each do |boulder| %>
+	<li><%= link_to boulder.name, boulder_path  %></li>
+  <% end %>
+  </ul>
+</p>
+
+<%= link_to 'Edit', edit_block_path(@block) %> |
+<%= link_to 'Back', blocks_path %>
