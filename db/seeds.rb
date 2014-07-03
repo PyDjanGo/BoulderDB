@@ -8,8 +8,26 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-sectors = %w[Haardt1 Haardt2]
+s = Sector.create!(name: "Haardt1")
+["Mondblock", "Energiezentrum"].each do |block|
+	b = s.blocks.create!(name: block)
+	["Rolando", "Der Fixator", "Dio", "Leistenterror", "Anorexie"].each do |boulder|
+		b.boulders.create!(name: boulder)
+	end
+end
 
-sectors.each do |sector|
-	Sector.create({name: sector})
+s = Sector.create!(name: "Haardt2")
+["Mondblock", "Energiezentrum"].each do |block|
+	b = s.blocks.create!(name: block)
+	["Kritikaster", "Sitting Bull", "Keep the Faith"].each do |boulder|
+		b.boulders.create!(name: boulder)
+	end
+end
+
+s = Sector.create!(name: "Wolfsburg")
+["Erdloch"].each do |block|
+	b = s.blocks.create!(name: block)
+	["Kieselkante", "Hades", "Power of now", "Farore"].each do |boulder|
+		b.boulders.create!(name: boulder)
+	end
 end

@@ -15,6 +15,17 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
+  
+  <div class="field">
+  	<%= f.label "Sector" %><br>
+  	<%= f.collection_select :id, Sector.order(:name), :id, :name %>
+  </div>
+  
+    <div class="field">
+  	<%= f.label "Block" %><br>
+  	<%= f.grouped_collection_select :id, Sector.order(:name), :blocks, :name, :id, :name %>
+  </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

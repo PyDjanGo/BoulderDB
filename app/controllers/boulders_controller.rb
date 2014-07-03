@@ -37,10 +37,8 @@ class BouldersController < ApplicationController
     respond_to do |format|
       if @boulder.update(boulder_params)
         format.html { redirect_to @boulder, notice: 'Boulder was successfully updated.' }
-        format.json { render :show, status: :ok, location: @boulder }
       else
         format.html { render :edit }
-        format.json { render json: @boulder.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -61,6 +59,6 @@ class BouldersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def boulder_params
-      params.require(:boulder).permit(:name)
+      params.require(:boulder).permit(:name, :sector_id, :region_id, :block_id)
     end
 end

@@ -6,7 +6,7 @@
   <h3>Boulder:</h3>
   <ul>
   <% @block.boulders.each do |boulder| %>
-	<li><%= link_to boulder.name, boulder_path  %></li>
+	<li><%= link_to boulder.name, edit_boulder_path  %></li>
   <% end %>
   </ul>
 </p>
