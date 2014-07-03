@@ -1,12 +1,16 @@
 <p id="notice"><%= notice %></p>
 
+<h2>Sektor:</h2>
+
 <p>
   <strong>Name:</strong>
   <%= @sector.name %>
-  <h3>Blöcke:</h3>
+</p>
+<p>
+  <strong>Blöcke:</strong>
   <ul>
   <% @sector.blocks.each do |block| %>
-	<li><%= link_to block.name, block_path  %> (<%= block.boulders.count %>)</li>
+	<li><%= link_to block.name, block_path(block)  %> (<%= block.boulders.count %>)</li>
   <% end %>
   </ul>
 </p>

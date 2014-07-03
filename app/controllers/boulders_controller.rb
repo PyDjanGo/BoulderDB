@@ -59,6 +59,6 @@ class BouldersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def boulder_params
-      params.require(:boulder).permit(:name, :sector_id, :region_id, :block_id)
+      params.require(:boulder).permit(:name, :block_id)
     end
 end

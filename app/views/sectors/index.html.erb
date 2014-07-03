@@ -5,6 +5,7 @@
     <tr>
       <th>Name</th>
       <th>Blöcke</th>
+      <th>Boulder</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,6 +15,7 @@
       <tr>
         <td><%= sector.name %></td>
         <td><%= sector.blocks.count %></td>
+        <td><%= sector.boulders.count %></td>
         <td><%= link_to 'Show', sector %></td>
         <td><%= link_to 'Edit', edit_sector_path(sector) %></td>
         <td><%= link_to 'Destroy', sector, method: :delete, data: { confirm: 'Are you sure?' } %></td>

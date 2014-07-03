@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Block</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -12,6 +13,7 @@
     <% @boulders.each do |boulder| %>
       <tr>
         <td><%= boulder.name %></td>
+        <td><%= boulder.block.name %></td>
         <td><%= link_to 'Show', boulder %></td>
         <td><%= link_to 'Edit', edit_boulder_path(boulder) %></td>
         <td><%= link_to 'Destroy', boulder, method: :delete, data: { confirm: 'Are you sure?' } %></td>

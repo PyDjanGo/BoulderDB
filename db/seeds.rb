@@ -8,26 +8,30 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-s = Sector.create!(name: "Haardt1")
-["Mondblock", "Energiezentrum"].each do |block|
-	b = s.blocks.create!(name: block)
-	["Rolando", "Der Fixator", "Dio", "Leistenterror", "Anorexie"].each do |boulder|
-		b.boulders.create!(name: boulder)
-	end
+
+Grade.destroy_all
+Sector.destroy_all
+Block.destroy_all
+Boulder.destroy_all
+
+["2a", "2b", "2c", "3a", "3b", "3c", "4a", "4b", "4c", "5a", "5b", "5c", "5c+", "6a", "6a+", "6b", "6b+", "6c", "6c+", "7a", "7b", "7b+", "7c", "7c+", "8a", "8a+", "8b", "8b+", "8c", "8c+"].each_with_index do |grade, index|
+	Grade.create!({name: grade, rank: index})
 end
 
-s = Sector.create!(name: "Haardt2")
-["Mondblock", "Energiezentrum"].each do |block|
-	b = s.blocks.create!(name: block)
-	["Kritikaster", "Sitting Bull", "Keep the Faith"].each do |boulder|
-		b.boulders.create!(name: boulder)
-	end
+# Sektoren:
+["Haardt1", "Haardt2", "Wolfsburg"].each do |sector|
+	Sector.create!(name: sector)
 end
 
-s = Sector.create!(name: "Wolfsburg")
-["Erdloch"].each do |block|
-	b = s.blocks.create!(name: block)
-	["Kieselkante", "Hades", "Power of now", "Farore"].each do |boulder|
-		b.boulders.create!(name: boulder)
-	end
+# Blöcke
+["Mondblock", "Energiezentrum", "Erdloch", "Terrorblock", "Mormonblock"].each do |block|
+	Block.create!(name: block, sector_id: Sector.ids.sample)
+end
+
+# Boulder
+["Rolando", "Der Fixator", "Dio", "Leistenterror", "Anorexie", "Kritikaster", "Sitting Bull", "Keep the Faith","Kieselkante", "Hades", "Power of now", "Farore"].each do |boulder|
+	b = Boulder.create!(name: boulder)
+	b.block = Block.find_by_id(Block.ids.sample)
+	b.grade = Grade.find_by_id(Grade.ids.sample)
+	b.save!
 end

@@ -3,5 +3,5 @@ class Boulder < ActiveRecord::Base
 	belongs_to :block
 	belongs_to :sector
 	belongs_to :region
-	has_one :grade
+	belongs_to :grade
 end
