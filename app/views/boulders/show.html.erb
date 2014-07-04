@@ -8,6 +8,10 @@
   <strong>Block:</strong>
   <%= @boulder.block.name %>
 </p>
+<p>
+  <strong>Schwierigkeit:</strong>
+  <%= @boulder.grade.name %>
+</p>
 
 <%= link_to 'Edit', edit_boulder_path(@boulder) %> |
 <%= link_to 'Back', block_path(@boulder.block) %>

@@ -18,12 +18,12 @@
   
   <div class="field">
   	<%= f.label "Sector" %><br>
-  	<%= f.collection_select :id, Sector.order(:name), :id, :name %>
+  	<%= select(:sector, :id, Sector.all.collect {|model| [model.name, model.id]}) %>
   </div>
   
     <div class="field">
   	<%= f.label "Block" %><br>
-  	<%= f.grouped_collection_select :id, Sector.order(:name), :blocks, :name, :id, :name %>
+  	<%= f.grouped_collection_select :block_id, Sector.order(:name), :blocks, :name, :id, :name %>
   </div>
   
   <div class="actions">

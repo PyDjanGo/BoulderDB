@@ -10,7 +10,7 @@
   <strong>Boulder:</strong>
   <ul>
   <% @block.boulders.each do |boulder| %>
-	<li><%= link_to boulder.name, edit_boulder_path(boulder)  %> <%= boulder.grade.name %></li>
+	<li><%= link_to boulder.name, boulder_path(boulder)  %> [<%= link_to "Edit", edit_boulder_path(boulder)  %>] <%= boulder.grade.name %> </li>
   <% end %>
   </ul>
 </p>
