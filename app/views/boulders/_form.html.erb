@@ -1,0 +1,32 @@
+<%= form_for(@boulder) do |f| %>
+  <% if @boulder.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@boulder.errors.count, "error") %> prohibited this boulder from being saved:</h2>
+
+      <ul>
+      <% @boulder.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  
+  <div class="field">
+  	<%= f.label "Sector" %><br>
+  	<%= select(:sector, :id, Sector.all.collect {|model| [model.name, model.id]}) %>
+  </div>
+  
+    <div class="field">
+  	<%= f.label "Block" %><br>
+  	<%= f.grouped_collection_select :block_id, Sector.order(:name), :blocks, :name, :id, :name %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
